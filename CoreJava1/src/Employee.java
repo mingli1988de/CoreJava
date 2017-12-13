@@ -3,24 +3,36 @@ import java.time.LocalDate;
 public class Employee {
 
 	/* Field */
-	private String name;
+	private static int nextId = 1;
+	private int id;
+	private final String name;
 	private double salary;
 	private LocalDate hireDay;
 
 	/* Constructor */
 	public Employee(String name, double salary, int year, int month, int day) {
+		setId();
 		this.name = name;
 		this.salary = salary;
 		this.hireDay = LocalDate.of(year, month, day);
 	}
 
 	/* Method */
-	public String getName() {
-		return name;
+	public static int getNextId() {
+		return nextId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getId() {
+		return id;
+	}
+
+	public void setId() {
+		this.id = getNextId();
+		nextId++;		
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public double getSalary() {
@@ -42,6 +54,12 @@ public class Employee {
 	public void raiseSalary(double byPercent) {
 		double raise = salary * byPercent / 100;
 		salary += raise;
+	}
+
+	/* Unit test */
+	public static void main(String[] args) {
+		Employee e = new Employee("Test One", 50000, 1990, 1, 1);
+		System.out.println(e.getId() + "" + e.getName());
 	}
 
 }
