@@ -39,4 +39,9 @@ public class Employee {
 		this.hireDay = hireDay;
 	}
 
+	public void raiseSalary(double byPercent) {
+		double raise = salary * byPercent / 100;
+		salary += raise;
+	}
+
 }
