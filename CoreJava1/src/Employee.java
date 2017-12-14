@@ -6,18 +6,36 @@ public class Employee {
 	/* Field */
 	private static int nextId;
 	private int id;
-	private final String name;
+	private String name = "";
 	private double salary;
 	private LocalDate hireDay;
 
+	/* Static Initialization Field */
 	static {
 		Random generator = new Random();
 		nextId = generator.nextInt(10000);
 	}
-	
+
+	/* Object Initialization Field */
+	{
+		id = nextId;
+		nextId++;
+	}
+
 	/* Constructor */
+	public Employee() {
+	}
+
+	public Employee(double salary) {
+		this("Employee #" + nextId, salary);
+	}
+
+	public Employee(String name, double salary) {
+		this.name = name;
+		this.salary = salary;
+	}
+
 	public Employee(String name, double salary, int year, int month, int day) {
-		setId();
 		this.name = name;
 		this.salary = salary;
 		this.hireDay = LocalDate.of(year, month, day);
@@ -32,11 +50,6 @@ public class Employee {
 		return id;
 	}
 
-	public void setId() {
-		this.id = getNextId();
-		nextId++;		
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -45,16 +58,8 @@ public class Employee {
 		return salary;
 	}
 
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-
 	public LocalDate getHireDay() {
 		return hireDay;
-	}
-
-	public void setHireDay(LocalDate hireDay) {
-		this.hireDay = hireDay;
 	}
 
 	public void raiseSalary(double byPercent) {
