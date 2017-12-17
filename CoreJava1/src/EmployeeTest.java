@@ -8,7 +8,7 @@ public class EmployeeTest {
 
 		staff[0] = new Employee("Carl Cracker", 75000, 1987, 12, 15);
 		staff[1] = new Employee(60000);
-		staff[2] = new Employee();
+		staff[2] = new Employee(50000);
 
 		// raise everyone's salary by 5%
 		for (Employee e : staff)

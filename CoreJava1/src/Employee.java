@@ -1,12 +1,11 @@
 import java.time.LocalDate;
 import java.util.Random;
 
-public class Employee {
+public class Employee extends Person {
 
 	/* Field */
 	private static int nextId;
 	private int id;
-	private String name = "";
 	private double salary;
 	private LocalDate hireDay;
 
@@ -23,20 +22,17 @@ public class Employee {
 	}
 
 	/* Constructor */
-	public Employee() {
-	}
-
 	public Employee(double salary) {
 		this("Employee #" + nextId, salary);
 	}
 
 	public Employee(String name, double salary) {
-		this.name = name;
+		super(name);
 		this.salary = salary;
 	}
 
 	public Employee(String name, double salary, int year, int month, int day) {
-		this.name = name;
+		super(name);
 		this.salary = salary;
 		this.hireDay = LocalDate.of(year, month, day);
 	}
@@ -48,10 +44,6 @@ public class Employee {
 
 	public int getId() {
 		return id;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public double getSalary() {
@@ -71,6 +63,11 @@ public class Employee {
 	public static void main(String[] args) {
 		Employee e = new Employee("Test One", 50000, 1990, 1, 1);
 		System.out.println(e.getId() + " " + e.getName());
+	}
+
+	@Override
+	public String getDescription() {
+		return String.format("an employee with a salary of $%.2f", salary);
 	}
 
 }
