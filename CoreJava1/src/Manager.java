@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Manager extends Employee {
 
@@ -23,8 +24,24 @@ public class Manager extends Employee {
 		double baseSalary = super.getSalary();
 		return baseSalary + bonus;
 	}
-	
-	public void setBonus(double b){
+
+	public void setBonus(double b) {
 		bonus = b;
 	}
+
+	public boolean equals(Object otherObject) {
+		if (!super.equals(otherObject))
+			return false;
+		Manager other = (Manager) otherObject;
+		return bonus == other.bonus;
+	}
+
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), bonus);
+	}
+
+	public String toString() {
+		return super.toString() + "[bonus=" + bonus + "]";
+	}
+
 }
