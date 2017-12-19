@@ -1,14 +1,16 @@
+import java.util.ArrayList;
 
 public class EmployeeTest {
 
 	public static void main(String[] args) {
 
 		// fill the staff array with 3 Employee objects
-		Employee[] staff = new Employee[3];
+		ArrayList<Employee> staff = new ArrayList<>();
 
-		staff[0] = new Employee("Carl Cracker", 75000, 1987, 12, 15);
-		staff[1] = new Employee(60000);
-		staff[2] = new Employee(50000);
+		staff.add(new Employee("Carl Cracker", 75000, 1987, 12, 15));
+		staff.add(new Employee("Harry Hacker", 50000, 1987, 11, 1));
+		staff.add(new Employee("Tony Tester", 40000, 1987, 10, 15));
+		staff.trimToSize();
 
 		// raise everyone's salary by 5%
 		for (Employee e : staff)
