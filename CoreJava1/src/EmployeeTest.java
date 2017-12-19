@@ -22,6 +22,24 @@ public class EmployeeTest {
 					+ e.getHireDay());
 
 		System.out.println("next ID is " + Employee.getNextId());
+
+		Integer a = 100;
+		Integer b = 100;
+		System.out.println(a == b);
+
+		System.out.println("the highest salary is "
+				+ max(staff.get(0).getSalary(), staff.get(1).getSalary(), staff.get(2).getSalary()));
+	}
+
+	private static double max(double... values) {
+
+		double largest = Double.NEGATIVE_INFINITY;
+
+		for (double v : values)
+			if (v > largest)
+				largest = v;
+
+		return largest;
 	}
 
 }
