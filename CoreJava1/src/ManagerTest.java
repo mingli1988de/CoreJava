@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class ManagerTest {
 
@@ -18,6 +19,11 @@ public class ManagerTest {
 			System.out.println("ID=" + e.getId() + ",name=" + e.getName() + ",salary=" + e.getSalary() + ",hireDay="
 					+ e.getHireDay());
 		
+		Arrays.sort(staff);
+		
+		for (Employee e : staff)
+			System.out.println("ID=" + e.getId() + ",name=" + e.getName() + ",salary=" + e.getSalary() + ",hireDay="
+					+ e.getHireDay());
 	}
 
 }

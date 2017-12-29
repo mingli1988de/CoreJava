@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Random;
 
-public class Employee extends Person {
+public class Employee extends Person implements Comparable<Employee> {
 
 	/* Field */
 	private static int nextId;
@@ -97,5 +97,10 @@ public class Employee extends Person {
 
 	public String toString() {
 		return getClass().getName() + "[name= " + getName() + ",salary= " + salary + ",hireDay= " + hireDay + "]";
+	}
+
+	@Override
+	public int compareTo(Employee other) {
+		return Double.compare(salary, other.salary);
 	}
 }
